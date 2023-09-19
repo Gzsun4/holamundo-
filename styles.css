@@ -1,0 +1,59 @@
+body {
+    font-family: 'Press Start 2P', cursive;
+    background-color: #1a1a1a; /* Fondo oscuro */
+    color: #ffffff;
+}
+
+header {
+    background-color: #333333; /* Fondo del encabezado */
+    padding: 10px;
+    text-align: center;
+}
+
+nav button {
+    background-color: #ff5722; /* Naranja */
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 5px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+nav button:hover {
+    background-color: #03a9f4; /* Celeste */
+}
+
+section {
+    background-color: #333333; /* Fondo de las secciones */
+    border: 2px solid #ff5722; /* Borde naranja alrededor de las secciones */
+    border-radius: 10px; /* Esquinas redondeadas */
+    padding: 20px;
+    margin: 20px 0;
+}
+
+h1, h2, h3 {
+    color: #ff5722; /* Naranja para los títulos */
+}
+
+a {
+    color: #03a9f4; /* Enlaces en azul claro */
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #ff5722; /* Naranja al pasar el mouse por encima del enlace */
+
+section {
+        /* ... (tu CSS existente) */
+        opacity: 0; /* Establecemos la opacidad inicial en 0 para la animación */
+        transition: opacity 0.5s ease-in-out; /* Añadimos una transición de opacidad */
+    }
+    
+    section.active {
+        opacity: 1; /* Cuando una sección está activa, la opacidad es 1 */
+    }
+}
