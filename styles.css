@@ -1,59 +1,186 @@
+:root {
+  --bg: #070b18;
+  --bg-soft: #121b36;
+  --card: rgba(10, 18, 38, 0.8);
+  --line: rgba(126, 182, 255, 0.28);
+  --text: #e9f2ff;
+  --text-muted: #b8c7ea;
+  --accent: #7ea8ff;
+  --accent-2: #66e2d8;
+  --danger: #ff7070;
+  --ok: #8cf9c7;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 body {
-    font-family: 'Press Start 2P', cursive;
-    background-color: #1a1a1a; /* Fondo oscuro */
-    color: #ffffff;
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Inter", sans-serif;
+  color: var(--text);
+  background: radial-gradient(circle at 20% 10%, #182651 0%, var(--bg) 45%, #04050d 100%);
 }
 
-header {
-    background-color: #333333; /* Fondo del encabezado */
-    padding: 10px;
-    text-align: center;
+.background-glow {
+  position: fixed;
+  inset: -20%;
+  pointer-events: none;
+  background: radial-gradient(circle at 70% 30%, rgba(108, 160, 255, 0.22), transparent 38%),
+    radial-gradient(circle at 30% 75%, rgba(102, 226, 216, 0.16), transparent 40%);
+  filter: blur(25px);
+  z-index: -1;
 }
 
-nav button {
-    background-color: #ff5722; /* Naranja */
-    color: #ffffff;
-    border: none;
-    padding: 10px 20px;
-    margin: 0 5px;
-    cursor: pointer;
-    font-size: 16px;
-    border-radius: 5px;
-    transition: background-color 0.3s;
+.page {
+  width: min(900px, 92vw);
+  margin: 2.5rem auto;
+  display: grid;
+  gap: 1.2rem;
 }
 
-nav button:hover {
-    background-color: #03a9f4; /* Celeste */
+.hero {
+  background: linear-gradient(160deg, rgba(126, 168, 255, 0.18), rgba(10, 18, 38, 0.85));
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  padding: 1.5rem;
 }
 
-section {
-    background-color: #333333; /* Fondo de las secciones */
-    border: 2px solid #ff5722; /* Borde naranja alrededor de las secciones */
-    border-radius: 10px; /* Esquinas redondeadas */
-    padding: 20px;
-    margin: 20px 0;
+.badge {
+  margin: 0;
+  display: inline-block;
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  background: rgba(102, 226, 216, 0.16);
+  color: #a5fff4;
+  font-size: 0.8rem;
+  font-weight: 600;
 }
 
-h1, h2, h3 {
-    color: #ff5722; /* Naranja para los títulos */
+h1 {
+  margin: 0.8rem 0 0.45rem;
+  font-size: clamp(1.5rem, 3.5vw, 2.2rem);
 }
 
-a {
-    color: #03a9f4; /* Enlaces en azul claro */
-    text-decoration: none;
-    transition: color 0.3s;
+.hero p {
+  margin: 0;
+  color: var(--text-muted);
 }
 
-a:hover {
-    color: #ff5722; /* Naranja al pasar el mouse por encima del enlace */
+.tabs-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  padding: 1.3rem;
+  backdrop-filter: blur(4px);
+}
 
-section {
-        /* ... (tu CSS existente) */
-        opacity: 0; /* Establecemos la opacidad inicial en 0 para la animación */
-        transition: opacity 0.5s ease-in-out; /* Añadimos una transición de opacidad */
-    }
-    
-    section.active {
-        opacity: 1; /* Cuando una sección está activa, la opacidad es 1 */
-    }
+.tabs {
+  display: flex;
+  gap: 0.7rem;
+  margin-bottom: 1rem;
+}
+
+.tab {
+  flex: 1;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--text-muted);
+  border-radius: 0.8rem;
+  padding: 0.8rem 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.tab:hover {
+  color: var(--text);
+  border-color: rgba(140, 249, 199, 0.4);
+}
+
+.tab.active {
+  background: linear-gradient(160deg, rgba(126, 168, 255, 0.25), rgba(102, 226, 216, 0.2));
+  color: #ffffff;
+  border-color: rgba(140, 249, 199, 0.45);
+}
+
+.panel {
+  display: none;
+}
+
+.panel.active {
+  display: block;
+}
+
+h2 {
+  margin: 0 0 0.4rem;
+}
+
+.panel-text {
+  margin: 0 0 1rem;
+  color: var(--text-muted);
+}
+
+form {
+  display: grid;
+  gap: 0.8rem;
+}
+
+label {
+  font-weight: 600;
+}
+
+input {
+  border: 1px solid rgba(126, 182, 255, 0.4);
+  border-radius: 0.7rem;
+  background: rgba(13, 24, 49, 0.85);
+  color: var(--text);
+  padding: 0.78rem 0.9rem;
+  font-size: 0.95rem;
+  outline: none;
+}
+
+input:focus {
+  border-color: var(--accent-2);
+  box-shadow: 0 0 0 2px rgba(102, 226, 216, 0.2);
+}
+
+button[type="submit"] {
+  margin-top: 0.4rem;
+  border: none;
+  border-radius: 0.8rem;
+  background: linear-gradient(140deg, var(--accent), var(--accent-2));
+  color: #061123;
+  padding: 0.85rem 1rem;
+  font-size: 0.96rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.message {
+  min-height: 1.2rem;
+  margin: 0.15rem 0 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.message.error {
+  color: var(--danger);
+}
+
+.message.success {
+  color: var(--ok);
+}
+
+footer {
+  text-align: center;
+  color: #a5b4d6;
+  font-size: 0.86rem;
+}
+
+@media (max-width: 700px) {
+  .tabs {
+    flex-direction: column;
+  }
 }
